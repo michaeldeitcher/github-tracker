@@ -20,6 +20,9 @@ export default class GithubEventsQuery extends Component {
     let json =  yield response.json();
     let eventData = A([]);
     json.forEach( element => {
+      if(!this.eventTypes.find((o) => o == element.type))
+        this.eventTypes.pushObject(element.type);
+
       let e = new EventData();
       e.type = element.type;
       e.actorName = element.actor.login;
@@ -37,11 +40,6 @@ export default class GithubEventsQuery extends Component {
   @action
   updateRepo(value) {
     this.repo = value;
-  }
-
-  @action
-  updateEventType(value) {
-    this.eventType = value;
   }
 
   @action

@@ -6,12 +6,21 @@
   <label for="repo">Repo</label>
   <Input @id="repo" @value={{this.repo}} @key-up={{action this.updateRepo}}/>
 </span>
-<span>
-  <label for="events">Events</label>
-  <Input @id="eventType" @key-up={{action this.updateEventType}}/>
-</span>
+
 {{#if this.fetchEvents.isRunning}}
   <span>retrieving...</span>
 {{else}}
   <button {{on "click" this.retrieveEvents}}>Retrieve Events</button>
+{{/if}}
+
+{{#if this.eventTypes.length}}
+  <hr/>
+  <div>
+    Filter by event type:
+    <span>All</span>
+
+    {{#each this.eventTypes as |eventType|}}
+      <span>{{eventType}}</span>
+    {{/each}}
+  </div>
 {{/if}}
