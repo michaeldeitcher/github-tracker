@@ -14,7 +14,7 @@ You will need the following things properly installed on your computer.
 
 ## Installation
 
-* `git clone <repository-url>` this repository
+* `git clone https://github.com/michaeldeitcher/github-tracker`
 * `cd github-tracker`
 * `npm install`
 
@@ -24,34 +24,13 @@ You will need the following things properly installed on your computer.
 * Visit your app at [http://localhost:4200](http://localhost:4200).
 * Visit your tests at [http://localhost:4200/tests](http://localhost:4200/tests).
 
-### Code Generators
-
-Make use of the many generators for code, try `ember help generate` for more details
-
-### Running Tests
-
-* `ember test`
-* `ember test --server`
-
-### Linting
-
-* `npm run lint:hbs`
-* `npm run lint:js`
-* `npm run lint:js -- --fix`
-
-### Building
-
-* `ember build` (development)
-* `ember build --environment production` (production)
-
-### Deploying
-
-Specify what it takes to deploy your app.
-
-## Further Reading / Useful Links
-
-* [ember.js](https://emberjs.com/)
-* [ember-cli](https://ember-cli.com/)
-* Development Browser Extensions
-  * [ember inspector for chrome](https://chrome.google.com/webstore/detail/ember-inspector/bmdblncegkenkacieihfhpjfppoconhi)
-  * [ember inspector for firefox](https://addons.mozilla.org/en-US/firefox/addon/ember-inspector/)
+### Challenges
+- How long did the project take you?
+A little over three hours.
+- What tradeoffs/choices did you make?
+I decided to use Ember Octane after reading through the documentation. I could have gotten more accomplished by using rails, an older version of Ember, or even create-react-app. It looks as if the github api doesn't support filtering by event type. I was in the process of adding event type filtering in the ember code but ran out of time.   
+- What went well?
+Working on this project made me more familiar with the latest version of Ember. I enjoyed that. It was pretty straight forward to use the github api. 
+- What could be improved in the project?
+The event type filtering could be completed. The api code could make multiple requests to the github api to retrieve more than one page of data. The details of the events could be rendered as well.
+I would like to use folders to nest the functionality of the github-events component to organize the code a bit better.  
