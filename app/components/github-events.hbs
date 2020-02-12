@@ -1,0 +1,7 @@
+<GithubEventsQuery @onEventsReceived={{this.updateEventList}}/>
+<hr/>
+{{#each this.eventData as |event|}}
+  <GithubEvent @data={{event}}/>
+{{else}}
+  <div>No events</div>
+{{/each}}
