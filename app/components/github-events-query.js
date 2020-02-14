@@ -13,12 +13,24 @@ class EventData {
 export default class GithubEventsQuery extends Component {
   @tracked owner = "michaeldeitcher";
   @tracked repo = "force-graph-three";
-  @tracked eventTypes = A([]);
+  @tracked eventData = A();
+  @tracked eventTypes = A();
+  @tracked filter = "All Events";
+
+  get filteredEventData() {
+    if(this.filter === "All Events")
+      return this.eventData;
+    else
+      return this.eventData.filter( e => e.type == this.filter );
+  }
 
   @task(function*() {
     let response = yield  fetch(`https://api.github.com/repos/${this.owner}/${this.repo}/events`);
     let json =  yield response.json();
-    let eventData = A([]);
+
+    this.eventData = A();
+    this.eventTypes = A();
+    this.eventTypes.pushObject('All Events');
     json.forEach( element => {
       if(!this.eventTypes.find((o) => o == element.type))
         this.eventTypes.pushObject(element.type);
@@ -27,10 +39,16 @@ export default class GithubEventsQuery extends Component {
       e.type = element.type;
       e.actorName = element.actor.login;
       e.createdAt = element.created_at;
-      eventData.pushObject(e);
+      this.eventData.pushObject(e);
     });
-    this.args.onEventsReceived(eventData);
+    this.args.onEventsReceived(this.filteredEventData);
   }) fetchEvents;
+
+  @action
+  selectFilter(eventType) {
+    this.filter = eventType;
+    this.args.onEventsReceived(this.filteredEventData);
+  }
 
   @action
   updateOwner(value) {

@@ -17,10 +17,8 @@
   <hr/>
   <div>
     Filter by event type:
-    <span>All</span>
-
     {{#each this.eventTypes as |eventType|}}
-      <span>{{eventType}}</span>
+      <span {{on "click"(fn this.selectFilter eventType)}}  class={{if (eq this.filter eventType) "selected"}}>{{eventType}}</span>
     {{/each}}
   </div>
 {{/if}}

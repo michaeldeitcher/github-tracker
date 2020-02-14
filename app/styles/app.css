@@ -2,3 +2,7 @@ span {
   min-width: 200px;
   display: inline-flex;
 }
+
+span.selected {
+  font-weight: bold;
+}

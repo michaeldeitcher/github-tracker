@@ -33,3 +33,6 @@ Working on this project made me more familiar with the latest version of Ember. 
 - What could be improved in the project?
 The event type filtering could be completed. The api code could make multiple requests to the github api to retrieve more than one page of data. The details of the events could be rendered as well.
 I would like to use folders to nest the functionality of the github-events component to organize the code a bit better.  
+
+### Addendum 
+It was really hard to not finish the filtering of event types. It was like an itch I needed to scratch. So I went and spent 20 minutes to write it. So I ended up spending 3 1/2 hours on the project, but got to learn some really cool Octane.  
